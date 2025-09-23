@@ -1,8 +1,8 @@
 package ru.netology.java;
 
 public class Radio {
-    public int currentFrequency;
-    public int currentVolume;
+    private int currentFrequency;
+    private int currentVolume;
 
     public int getCurrentFrequency() {
         return currentFrequency;
@@ -25,13 +25,17 @@ public class Radio {
     public void next() {
         if (currentFrequency < 9) {
             currentFrequency = currentFrequency + 1;
-        } else currentFrequency = 0;
+        } else {
+            currentFrequency = 0;
+        }
     }
 
     public void prev() {
         if (currentFrequency > 0) {
             currentFrequency = currentFrequency - 1;
-        } else currentFrequency = 9;
+        } else {
+            currentFrequency = 9;
+        }
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
