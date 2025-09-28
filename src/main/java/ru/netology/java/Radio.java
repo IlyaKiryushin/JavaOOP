@@ -1,8 +1,20 @@
 package ru.netology.java;
 
 public class Radio {
+    private int minFrequency = 0;
+    private int maxFrequency = 9;
     private int currentFrequency;
+    private int minVolume = 0;
+    private int maxVolume = 100;
     private int currentVolume;
+
+    public Radio() {
+
+    }
+
+    public Radio(int Range) {
+        this.maxFrequency = minFrequency + Range - 1;
+    }
 
     public int getCurrentFrequency() {
         return currentFrequency;
@@ -13,28 +25,28 @@ public class Radio {
     }
 
     public void setCurrentFrequency(int newCurrentFrequency) {
-        if (newCurrentFrequency > 9) {
+        if (newCurrentFrequency > maxFrequency) {
             return;
         }
-        if (newCurrentFrequency < 0) {
+        if (newCurrentFrequency < minFrequency) {
             return;
         }
         currentFrequency = newCurrentFrequency;
     }
 
     public void next() {
-        if (currentFrequency < 9) {
+        if (currentFrequency < maxFrequency) {
             currentFrequency = currentFrequency + 1;
         } else {
-            currentFrequency = 0;
+            currentFrequency = minFrequency;
         }
     }
 
     public void prev() {
-        if (currentFrequency > 0) {
+        if (currentFrequency > minFrequency) {
             currentFrequency = currentFrequency - 1;
         } else {
-            currentFrequency = 9;
+            currentFrequency = maxFrequency;
         }
     }
 
@@ -43,13 +55,13 @@ public class Radio {
     }
 
     public void louderVolume() {
-        if (currentVolume < 100) {
+        if (currentVolume < maxVolume) {
             currentVolume = currentVolume + 1;
         }
     }
 
     public void quieterVolume() {
-        if (currentVolume > 0) {
+        if (currentVolume > minVolume) {
             currentVolume = currentVolume - 1;
         }
     }
