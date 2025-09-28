@@ -8,10 +8,6 @@ public class Radio {
     private int maxVolume = 100;
     private int currentVolume;
 
-    public Radio() {
-
-    }
-
     public Radio(int Range) {
         this.maxFrequency = minFrequency + Range - 1;
     }
