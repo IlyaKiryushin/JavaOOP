@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
-    Radio radio = new Radio();
+    Radio radio = new Radio(30);
 
     @Test
     public void shouldSetFrequency() {
@@ -24,15 +24,15 @@ public class RadioTest {
 
     @Test
     public void shouldSetFrequencyIfMax() {
-        radio.setCurrentFrequency(9);
-        int expected = 9;
+        radio.setCurrentFrequency(29);
+        int expected = 29;
         int actual = radio.getCurrentFrequency();
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void shouldSetFrequencyIfMoreMax() {
-        radio.setCurrentFrequency(10);
+        radio.setCurrentFrequency(30);
         int expected = 0;
         int actual = radio.getCurrentFrequency();
         Assertions.assertEquals(expected, actual);
@@ -64,7 +64,7 @@ public class RadioTest {
 
     @Test
     public void shouldIncreaseFrequencyOnOnebyMax() {
-        radio.setCurrentFrequency(9);
+        radio.setCurrentFrequency(29);
         radio.next();
         int expected = 0;
         int actual = radio.getCurrentFrequency();
@@ -93,7 +93,7 @@ public class RadioTest {
     public void shouldReduceFrequencyOnOnebyMin() {
         radio.setCurrentFrequency(0);
         radio.prev();
-        int expected = 9;
+        int expected = 29;
         int actual = radio.getCurrentFrequency();
         Assertions.assertEquals(expected, actual);
     }
@@ -109,9 +109,9 @@ public class RadioTest {
 
     @Test
     public void shouldReduceFrequencyOnOnebyMax() {
-        radio.setCurrentFrequency(9);
+        radio.setCurrentFrequency(29);
         radio.prev();
-        int expected = 8;
+        int expected = 28;
         int actual = radio.getCurrentFrequency();
         Assertions.assertEquals(expected, actual);
     }
