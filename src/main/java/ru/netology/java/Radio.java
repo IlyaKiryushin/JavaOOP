@@ -8,8 +8,12 @@ public class Radio {
     private int maxVolume = 100;
     private int currentVolume;
 
-    public Radio(int Range) {
-        this.maxFrequency = minFrequency + Range - 1;
+    public Radio() {
+
+    }
+
+    public Radio(int range) {
+        this.maxFrequency = minFrequency + range - 1;
     }
 
     public int getCurrentFrequency() {
